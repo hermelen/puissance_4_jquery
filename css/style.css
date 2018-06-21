@@ -1,0 +1,83 @@
+body {
+  background-color: lightgrey;
+  perspective: 25em;
+}
+
+main {
+  padding-top: 10%;
+}
+
+/* main.player_1 {
+transform: rotateY(-30deg);
+animation-duration: 1s;
+animation-name: rotate1;
+}
+main.player_2 {
+animation-duration: 1s;
+transform: rotateY(30deg);
+animation-name: rotate2;
+} */
+
+h1 {
+  text-align: center;
+}
+
+table {
+  position: relative;
+  z-index: 2;
+  padding: 2em;
+  background-color: orange;
+  margin: auto;
+}
+
+div.jeton {
+  position: absolute;
+  z-index: 1;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  bottom: 300px;
+  left: 0px;
+  transition: 0.2s;
+  opacity: 0;
+}
+
+div.jeton.bottom {
+  bottom: 0px;
+  opacity: 1;
+}
+
+td {
+  width: 2em;
+  height: 2em;
+  border: 2px solid lightgrey;
+  border-radius: 50%;
+  padding: 0;
+  background-color: lightgrey;
+  position: relative;
+  z-index: 0;
+}
+
+
+div.win {
+  width: 30%;
+  margin: auto;
+}
+
+@keyframes rotate1 {
+  from {
+    transform: rotateY(30deg);
+  }
+  to {
+    transform: rotateY(-30deg);
+  }
+}
+
+@keyframes rotate2 {
+  from {
+    transform: rotateY(-30deg);
+  }
+  to {
+    transform: rotateY(30deg);
+  }
+}
