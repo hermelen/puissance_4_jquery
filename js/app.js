@@ -1,22 +1,36 @@
-// create HTML Tab
-var titre = document.getElementsByTagName('h1')[0];
-var mainElmt = document.getElementsByTagName('main')[0];
-var tableA = document.createElement("table");
-var joueur = 1;
+$(document).ready(function(){
+ var mainElmt = $('main');
+ var tableA = $("<table>");
+ var joueur = 1;
+ var trA = [];
+// var titre = document.getElementsByTagName('h1')[0];
+// var mainElmt = document.getElementsByTagName('main')[0];
+// var tableA = document.createElement("table");
+// var joueur = 1;
 
-var trA = [];
+// var trA = [];
 // var tableData = [];
-
 for (var j = 0; j < 6; j++) {
-  trA[j] = document.createElement("tr");
+  trA[j] = $("tr");
   trAj = trA[j];
-  for (var i = 0; i < 7; i++) {
-    trA[j][i] = document.createElement("td");
-    tdAi = trA[j][i];
-    tdAi.className = "grey";
-    trAj.appendChild(tdAi);
-  }
-  tableA.appendChild(trAj);
+$(tableA).append($(trAj));
+  console.log(tableA)
+// for (var j = 0; j < 6; j++) {
+//   trA[j] = document.createElement("tr");
+//   trAj = trA[j];
+  // for (var i = 0; i < 7; i++) {
+  //   trA[j][i] = document.createElement("td");
+  //   tdAi = trA[j][i];
+  //   tdAi.className = "grey";
+  //   trAj.append(tdAi);
+  // }
+   for (var i = 0; i < 7; i++) {
+      trA[j][i] = $("td");
+      tdAi = trA[j][i];
+      tdAi.className = "grey";
+      trAj.append(tdAi);
+      tableA.append(trAj);
+   }
 }
 
 mainElmt.prepend(tableA);
@@ -50,7 +64,7 @@ for (var i = 0; i < 7; i++) {
       col = parseInt(this.id);
       if (trA[row][col].className == "grey") {
         trA[row][col].className = color;
-        trA[row][col].appendChild(jeton);
+        trA[row][col].append(jeton);
         setTimeout(function(){
           jeton.classList.add('bottom');
         }, 100)
@@ -61,9 +75,9 @@ for (var i = 0; i < 7; i++) {
   });
 
 
-  trB.appendChild(tdBi);
+  trB.append(tdBi);
 }
-tableB.appendChild(trB);
+tableB.append(trB);
 mainElmt.prepend(tableB);
 
 function checkWin() {
@@ -101,8 +115,15 @@ function youWin(color){
   var winDiv = document.createElement('div');
   winDiv.className = "win";
   winDiv.innerHTML = "Victoire de "+color+"!";
-  mainElmt.appendChild(winDiv);
+  mainElmt.append(winDiv);
   setTimeout(function(){
     window.location.reload()
   }, 3000)
 }
+
+
+
+
+
+
+})
