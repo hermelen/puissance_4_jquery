@@ -1,24 +1,29 @@
-$( document ).ready(function() {
+// create HTML Tab
+jQuery(document).ready(function() {
+
+  // var mainElmt = document.getElementsByTagName('main')[0];
   var mainElmt = $('main');
+  // var tableA = document.createElement("table");
   var tableA = $("<table>");
   var joueur = 1;
+  mainElmt.prepend(tableA);
+
   var trA = [];
+  // var tableData = [];
 
   for (var j = 0; j < 6; j++) {
     trA[j] = $("<tr>");
     trAj = trA[j];
-    tableA.append(trAj);
     for (var i = 0; i < 7; i++) {
       trA[j][i] = $("<td>");
-      trAji = trA[j][i];
-      trAji.addClass('grey');
-      trAj.append(trAji);
-      tableA.append(trAj);
+      tdAi = trA[j][i];
+      tdAi.addClass("grey");
+      trAj.append($(tdAi));
     }
+    tableA.append($(trAj));
   }
-  $mainElmt.append(tableA);
 
-
+  //
   // var tableB = document.createElement("table");
   // mainElmt.className = "player_1";
   // var trB = document.createElement("tr");
@@ -48,7 +53,7 @@ $( document ).ready(function() {
   //       col = parseInt(this.id);
   //       if (trA[row][col].className == "grey") {
   //         trA[row][col].className = color;
-  //         trA[row][col].append(jeton);
+  //         trA[row][col].appendChild(jeton);
   //         setTimeout(function() {
   //           jeton.classList.add('bottom');
   //         }, 100)
@@ -59,12 +64,19 @@ $( document ).ready(function() {
   //   });
   //
   //
-  //   trB.append(tdBi);
+  //   trB.appendChild(tdBi);
   // }
-  // tableB.append(trB);
+  // tableB.appendChild(trB);
   // mainElmt.prepend(tableB);
   //
   // function checkWin() {
+  //   // console.log(trA);
+  //
+  //   // for (var j = 1; j < 8; j++) {
+  //   //   if (trA[row][col+j]){
+  //   //     console.log(trA[row][col+j].children[0].style.backgroundColor);
+  //   //   }
+  //   // }
   //
   //   for (var j = 0; j < 4; j++) {
   //     if (trA[row][j].className == color && trA[row][j + 1].className == color && trA[row][j + 2].className == color && trA[row][j + 3].className == color) {
@@ -92,15 +104,11 @@ $( document ).ready(function() {
   //   var winDiv = document.createElement('div');
   //   winDiv.className = "win";
   //   winDiv.innerHTML = "Victoire de " + color + "!";
-  //   mainElmt.append(winDiv);
+  //   mainElmt.appendChild(winDiv);
   //   setTimeout(function() {
   //     window.location.reload()
   //   }, 3000)
   // }
-
-
-
-
 
 
 })
